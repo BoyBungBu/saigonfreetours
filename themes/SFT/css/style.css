@@ -5,4 +5,12 @@
 .img-baiviet{
     //max-height: 367px;
     max-width: 550px;
+    display: block;
+    margin: 0px auto;
+}
+.content{
+    text-align: left;   
+}
+.img-caption{
+    text-align: center;
 }
