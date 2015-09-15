@@ -4,7 +4,7 @@
 <?php endif; ?>
 <!-- /#skipnav -->
 <?php if ($logo || $site_name || $site_slogan || ($page['header']) || ($page['search_box']) || ($page['site_login'])): ?>
-<div id="header" class="clearfix header" role="banner">
+<!--<div id="header" class="clearfix header" role="banner">-->
   <div class="container">
     <div class="row">
       <div class="header-section <?php if (($page['search_box']) || ($page['site_login'])): print 'span8'; else: print 'span12'; endif; ?>">
@@ -41,7 +41,7 @@
       <!-- /#site-login -->
     </div>
   </div>
-</div>
+<!--</div>-->
 <!-- /#header -->
 <?php endif; ?>
 <?php if (($main_menu) || ($page['search_box'])): ?>
@@ -230,4 +230,4 @@
   </div>
 </div>
 <!-- /#footer -->
-<?php endif; ?>
+<?php endif; 

@@ -18,10 +18,11 @@
     margin: 0 0 10px;
 }
 
-.site-links{       
+.site-links{     
+
     position: absolute;
-    right: 5%;
-    top: 20%;
+    right: 10%;
+    top: 5%;    
     z-index: 999;
     list-style: none;   
     display: inline-block;
@@ -45,6 +46,18 @@
     font-size: 14px;
 }
 .login_contain{
-   position: relative;
+    position: relative;
+    right: 5%;
+    top: 20%;    
+}
 
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+    color: #FFF;
+    text-decoration: none;
+    background-color: #FF5400;
+    box-shadow: none;   
+    text-align:center;
+    font-size: 16px;
+    height: 60px;    
+    line-height: 60px;   
 }
