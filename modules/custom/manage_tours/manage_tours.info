@@ -1,0 +1,5 @@
+name = Manage Tours
+description = Manage Tours
+package = SFT-Manage
+core = 7.x
+file[]=manage_tours.module
