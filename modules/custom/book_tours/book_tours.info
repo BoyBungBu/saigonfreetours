@@ -1,5 +1,0 @@
-name = Book Tours
-description = Book a Tour
-package = SFT
-core = 7.x
-file[]=book_tours.module
