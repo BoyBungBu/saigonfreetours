@@ -4,7 +4,7 @@
 <?php endif; ?>
 <!-- /#skipnav -->
 <?php if ($logo || $site_name || $site_slogan || ($page['header']) || ($page['search_box']) || ($page['site_login'])): ?>
-<!--<div id="header" class="clearfix header" role="banner">-->
+<div id="header" class="clearfix header" role="banner">
   <div class="container">
     <div class="row">
       <div class="header-section <?php if (($page['search_box']) || ($page['site_login'])): print 'span8'; else: print 'span12'; endif; ?>">
@@ -15,7 +15,7 @@
         <?php if ($site_name || $site_slogan): ?>
         <div id="name-and-slogan">
           <?php if ($site_name): ?>
-          <div id="site-name" class="hide"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a></div>
+          <div id="site-name" class="site-name"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a></div>
           <?php endif; ?>
           <?php if ($site_slogan): ?>
           <div id="site-slogan" class="site-slogan"><?php print $site_slogan; ?></div>
@@ -41,7 +41,7 @@
       <!-- /#site-login -->
     </div>
   </div>
-<!--</div>-->
+</div>
 <!-- /#header -->
 <?php endif; ?>
 <?php if (($main_menu) || ($page['search_box'])): ?>
@@ -55,7 +55,7 @@
         <div id="nav-search" class="nav-search"> <?php print render($page['search_box']); ?> </div>
         <?php endif; ?>
         <?php if ($main_menu): ?>
-        <button class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <button aria-label="Navigation menu" class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse"> <span class="hide">Navigation menu</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
         <?php if ($primary_nav || !empty($page['navigation'])): ?>
         <div class="nav-collapse collapse">
           <nav id="main-nav" role="navigation">
@@ -230,4 +230,4 @@
   </div>
 </div>
 <!-- /#footer -->
-<?php endif; 
+<?php endif; ?>

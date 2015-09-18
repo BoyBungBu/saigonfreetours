@@ -51,7 +51,7 @@
     top: 20%;    
 }
 
-.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+.navbar .nav > .active > a,.navbar .nav > .active > a:hover, .navbar .nav > li > a:hover, .navbar .nav > .active > a:focus {
     color: #FFF;
     text-decoration: none;
     background-color: #FF5400;
@@ -60,4 +60,19 @@
     font-size: 16px;
     height: 60px;    
     line-height: 60px;   
+}
+.navbar .nav > li > a, .navbar .nav > li > a:focus {    
+    text-decoration: none;    
+    box-shadow: none;   
+    text-align:center;
+    font-size: 16px;
+    height: 60px;    
+    line-height: 60px;   
+}
+.site-main-menu ul.menu li {
+    margin: 0px 1px 0px 1px;
+    padding: 0;
+}
+.container{
+    width: 100%;
 }
