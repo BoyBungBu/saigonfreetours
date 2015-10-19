@@ -83,9 +83,12 @@ function tour_add($form, &$form_state) {
         'traveler_email' => $traveler_email,
         'traveler_message' => $traveler_message,
     );
+    $type_tour = $form['kot_id']['#options'][$kot_id];
+    var_dump($type_tour);
     try {
         db_insert('sft_tours')->fields($data)->execute();
         drupal_set_message("$traveler_name booked this tour successfully!");
+        sent_mail_confirm($traveler_name, $type_tour, $t_date, $traveler_address, $traveler_email);
     } catch (Exception $exc) {
         drupal_set_message('Error (' . $exc->getMessage() . ')', 'error');
     }
@@ -120,4 +123,36 @@ function get_kot() {
     $q->fields('kot', array('kot_id', 'kot_name'));
     $rs = $q->execute()->fetchAllKeyed(0, 1);
     return $rs;
+}
+
+function sent_mail_confirm($name, $type_tour, $date, $address, $email) {
+    $params = array();
+    $type_tour = strtoupper($type_tour);
+    $params['subject'] = t('Confirm your tour reservation at saigonfreetours.org');
+    $params['body'] = t("Hello $name, <br>
+    We received your tour reservation which is $type_tour.
+    Your tour will be start at $date. We will pick you up at $address.
+    <br>
+    If you received this e-mail in error just ignore this message. No further actions are required from you.<br>
+    Note: this e-mail was sent automatically, please, do not reply to it.") . '<br>_____________________________________________<br>';
+    $signature = t('Saigon Free Tours - Shut up and go with us :v');
+
+    $params['body'] .=$signature;
+    $result = drupal_mail('book_tours', 'book_tours', $email, language_default(), $params);
+    if ($result['result'] != TRUE) {
+        drupal_set_message(t('Có lỗi xảy ra, hệ thống không gửi dc mail.'), 'error');
+    }
+}
+
+function book_tours_mail($key, &$message, $params) {
+    $message['headers'] = array(
+        'Content-Type' => 'text/html;charset=utf-8',
+        'Return-Path' => 'no-reply@saigonfreetours.org');
+    if ($key == 'book_tours') {
+        $message['subject'] = $params['subject'];
+        $message['body'][] = $params['body'];
+        if (isset($params['headers']) && is_array($params['headers'])) {
+            $message['headers'] += $params['headers'];
+        }
+    }
 }
